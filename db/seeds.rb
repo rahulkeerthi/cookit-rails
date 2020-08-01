@@ -21,8 +21,9 @@ Restaurant.destroy_all
 User.destroy_all
 
 puts "Creating User!"
-user1 = User.new(username: "rahul")
+user1 = User.new(email: "rahul@cookit.com")
 user1.password = "qwerty"
+user1.admin = true
 user1.save!
 puts "User Created!"
 

@@ -1,2 +1,18 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<div class="container">
+  <div>
+    <h1>Our Kits</h1>
+    <ul>
+      <% @kits.first(10).each do |kit| %>
+        <li><%= kit.name %></li>
+      <% end %>
+    </ul>
+  </div>
+  <div>
+    <h1>Our Restaurants</h1>
+    <ul>
+      <% @restaurants.first(10).each do |restaurant| %>
+        <li><%= restaurant.name %></li>
+      <% end %>
+    </ul>
+  </div>
+</div>

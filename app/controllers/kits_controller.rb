@@ -1,4 +1,5 @@
 class KitsController < ApplicationController
+  skip_before_action :authenticate_user!
   before_action :set_kit, only: %i[show related_by_tag related_by_restaurant destroy]
 
   def index

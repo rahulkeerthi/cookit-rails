@@ -1,4 +1,5 @@
 class RestaurantsController < ApplicationController
+  skip_before_action :authenticate_user!
   before_action :set_restaurant, only: %i[show destroy]
 
   def index
