@@ -1,10 +1,35 @@
 // Define variables for your color scheme
 
 // For example:
-$red: #FD1015;
-$blue: #167FFB;
-$yellow: #FFC65A;
-$orange: #E67E22;
-$green: #1EDD88;
-$gray: #0E0000;
-$light-gray: #F4F4F4;
+$red: #fd1015;
+$blue: #167ffb;
+$yellow: #ffc65a;
+$orange: #e67e22;
+$green: #1edd88;
+$gray: #0e0000;
+$light-gray: #f4f4f4;
+$white: #ffffff;
+$black: #000000;
+
+$primary-light: rgba(207, 188, 223, 1);
+$primary-main: rgba(186, 143, 149, 1);
+$primary-dark: rgba(154, 87, 111, 1);
+$primary-text: rgba(41, 41, 50, 1);
+
+$secondary-light: rgba(214, 193, 109, 1);
+$secondary-main: rgba(193, 164, 47, 1);
+$secondary-dark: rgba(150, 126, 31, 1);
+$secondary-text: rgba(41, 41, 50, 1);
+
+$error-light: rgba(218, 174, 174, 1);
+$error-main: rgba(243, 124, 115, 1);
+$error-dark: #d32f2f;
+$error-text: #fff;
+
+$text-primary: rgba(41, 41, 50, 1);
+$text-secondary: rgba(0, 0, 0, 0.54);
+$text-disabled: rgba(0, 0, 0, 0.38);
+$text-hint: rgba(0, 0, 0, 0.38);
+
+$background-primary: rgba(245, 241, 248, 1);
+$background-secondary: rgba(249, 241, 241, 1);
