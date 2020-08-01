@@ -1,0 +1,47 @@
+class RestaurantsController < ApplicationController
+  before_action :set_restaurant, only: %i[show destroy]
+
+  def index
+    @restaurants = Restaurant.includes(:kits).all
+  end
+
+  def show
+  end
+
+  def edit
+  end
+
+  def new
+  end
+
+  def update
+    if @restaurant.update(restaurant_params)
+      @restaurant
+    else
+      render 'edit'
+    end
+  end
+
+  def create
+    @restaurant = Restaurant.new(restaurant_params)
+    if @restaurant.save
+      @restaurant
+    else
+      render 'new'
+    end
+  end
+
+  def destroy
+    @restaurant.destroy
+  end
+
+  private
+
+  def restaurant_params
+    params.require(:restaurant).permit(:name, :description, :city, :postcode, :address1, :address2, :delivery_options, :email, :twitter, :facebook, :instagram, :website_url, :contact_name, :logo, photos: [])
+  end
+
+  def set_restaurant
+    @restaurant = Restaurant.find(params[:id])
+  end
+end
