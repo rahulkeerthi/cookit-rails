@@ -1,3 +1,26 @@
+# == Schema Information
+#
+# Table name: restaurants
+#
+#  id               :bigint           not null, primary key
+#  address1         :string
+#  address2         :string
+#  city             :string
+#  contact_name     :string
+#  delivery_options :string
+#  description      :text
+#  email            :string
+#  facebook         :string
+#  instagram        :string
+#  map_lat          :float
+#  map_long         :float
+#  name             :string
+#  postcode         :string
+#  twitter          :string
+#  website_url      :string
+#  created_at       :datetime         not null
+#  updated_at       :datetime         not null
+#
 require 'uri'
 
 class Restaurant < ApplicationRecord
@@ -25,9 +48,9 @@ class Restaurant < ApplicationRecord
     kits.count
   end
 
-  # def logo_service_url
-  #   self.logo.service_url
-  # end
+  def logo_service_url
+    self.logo.service_url
+  end
 
   # TODO: add geocoding (long, lat columns) with a geocoder gem/API (Mapbox? Google?)
   # TODO: add logo and photos for restaurants (Cloudinary or something else?)
