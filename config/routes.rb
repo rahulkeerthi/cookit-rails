@@ -9,5 +9,4 @@ Rails.application.routes.draw do
       get 'related_by_restaurant'
     end
   end
-
 end
