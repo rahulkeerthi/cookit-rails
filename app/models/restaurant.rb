@@ -49,7 +49,7 @@ class Restaurant < ApplicationRecord
   end
 
   def logo_service_url
-    self.logo.service_url
+    logo.service_url
   end
 
   # TODO: add geocoding (long, lat columns) with a geocoder gem/API (Mapbox? Google?)

@@ -1,18 +1,44 @@
 <div class="container">
   <div>
     <h1>Our Kits</h1>
-    <ul>
-      <% @kits.first(10).each do |kit| %>
-        <li><%= kit.name %></li>
+    <div class="card-columns">
+      <% @kits.first(9).each do |kit| %>
+        <%= link_to kit_path(kit) do %>
+          <div class="card">
+            <img class="card-img-top" src=<%= url_for(kit.photos.first) %> alt=<%= kit.name %> style="height: 15rem; object-fit: cover; filter: brightness(70%);">
+            <div class="card-img-overlay d-flex flex-column justify-content-center">
+              <h2 class="card-title pt-5 text-white" ><%= kit.name %></h2>
+            </div>
+            <div class="card-body d-flex justify-content-between">
+              <div>
+                <h5 class="card-text"><%= kit.restaurant.name %></h5>
+                <h5 class="card-text text-dark"><%= kit.restaurant.delivery_options %></h5>
+              </div>
+              <h2 class="card-title align-self-center">£<%= kit.price.to_i %></h2>
+            </div>
+          </div>
+        <% end %>
       <% end %>
-    </ul>
+    </div>
   </div>
   <div>
     <h1>Our Restaurants</h1>
-    <ul>
-      <% @restaurants.first(10).each do |restaurant| %>
-        <li><%= restaurant.name %></li>
+    <div class="card-columns">
+      <% @restaurants.first(9).each do |restaurant| %>
+        <%= link_to restaurant_path(restaurant) do %>
+          <div class="card">
+            <img class="card-img-top" src=<%= url_for(restaurant.photos.first) %> alt=<%= restaurant.name %> >
+            <div class="card-body">
+              <h3 class="card-title"><%= restaurant.name %></h3>
+              <h4 class="card-title"><%= pluralize(restaurant.kits.count, "kit") %> available</h4>
+              <h5 class="card-title text-primary"><%= restaurant.delivery_options %></h5>
+              <% restaurant.tags.each do |tag| %>
+                <span class="badge badge-pill px-3 py-2" style="border: 1px solid rgba(154, 87, 111, 1); background-color: transparent;"><%= tag.name %></span>
+              <% end %>
+            </div>
+          </div>
+        <% end %>
       <% end %>
-    </ul>
+    </div>
   </div>
 </div>
