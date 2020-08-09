@@ -10,3 +10,18 @@
 .navbar-lewagon .navbar-brand img {
 	width: 40px;
 }
+
+/*
+ * Open dropdowns on hover instead of click.
+ */
+@media (min-width: 768px) {
+	.dropdown:hover > .dropdown-menu {
+		display: block;
+	}
+}
+
+@media (max-width: 768px) {
+	.nav-avatar {
+		display: none;
+	}
+}
