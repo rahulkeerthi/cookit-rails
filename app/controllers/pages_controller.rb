@@ -5,4 +5,13 @@ class PagesController < ApplicationController
     @kits = Kit.all
     @restaurants = Restaurant.all
   end
+
+  def about
+  end
+
+  def contact_us
+  end
+
+  def tc
+  end
 end
