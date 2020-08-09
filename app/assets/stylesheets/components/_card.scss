@@ -1,0 +1,11 @@
+.card__pill-light {
+	border: 1px solid $primary-dark;
+	background-color: $white;
+}
+
+.card__pill-dark {
+	border: 1px solid $primary-light;
+	background-color: $background-primary;
+	color: $primary-text;
+	font-size: 1.2rem;
+}

@@ -7,6 +7,8 @@ class KitsController < ApplicationController
   end
 
   def show
+    @restaurant = @kit.restaurant
+    @restaurant_kits = @restaurant.kits
   end
 
   def edit

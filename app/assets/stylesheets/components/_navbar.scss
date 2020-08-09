@@ -1,14 +1,48 @@
 .navbar-lewagon {
 	justify-content: space-between;
 	background: $primary-main;
+	font-size: 1.2rem;
+	.navbar-collapse {
+		flex-grow: 0;
+	}
+	.navbar-brand img {
+		width: 40px;
+	}
 }
 
-.navbar-lewagon .navbar-collapse {
-	flex-grow: 0;
+.navbar--logo {
+	height: 100px;
+	position: absolute;
+	z-index: 100;
+	top: 0;
+
+	&:hover {
+		animation-name: spin;
+		animation-duration: 1500ms;
+		animation-iteration-count: infinite;
+		animation-timing-function: cubic-bezier(0.645, 0.045, 0.355, 1);
+	}
+
+	@media (prefers-reduced-motion) {
+		&:hover {
+			animation-iteration-count: 1;
+		}
+	}
+
+	@media screen and (max-width: 768px) {
+		&-hide {
+			display: none;
+		}
+	}
 }
 
-.navbar-lewagon .navbar-brand img {
-	width: 40px;
+@keyframes spin {
+	from {
+		transform: rotate3d(1, 1, 0, 0deg);
+	}
+	to {
+		transform: rotate3d(0, 1, 1, 360deg);
+	}
 }
 
 /*

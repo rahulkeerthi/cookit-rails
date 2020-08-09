@@ -1,0 +1,42 @@
+.banner {
+	&--kit {
+		background-color: $background-tertiary;
+		color: $text-secondary;
+		display: grid;
+		grid-template-columns: 1fr 2fr;
+		gap: 1.5rem;
+		padding-left: 10vw;
+		padding-right: 10vw;
+	}
+
+	@media screen and (max-width: 400px) {
+		&--kit {
+			display: block;
+			padding: inherit;
+		}
+	}
+
+	@media screen and (max-width: 768px) {
+		&--kit {
+			display: block;
+			grid-template-columns: 1fr 1fr;
+			padding: inherit;
+		}
+	}
+
+	&--left {
+	}
+
+	&--right {
+	}
+
+	&--socials {
+		font-size: 1.8rem;
+		color: $white;
+		margin-right: 8px;
+
+		&:hover {
+			color: $primary-main;
+		}
+	}
+}

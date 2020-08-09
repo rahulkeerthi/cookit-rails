@@ -6,7 +6,7 @@
       <h4 class="card-title"><%= pluralize(restaurant.kits.count, "kit") %> available</h4>
       <h5 class="card-title text-primary"><%= restaurant.delivery_options %></h5>
       <% restaurant.tags.each do |tag| %>
-        <span class="badge badge-pill px-3 py-2" style="border: 1px solid rgba(154, 87, 111, 1); background-color: transparent;"><%= tag.name %></span>
+        <span class="badge badge-pill px-3 py-2 card__pill-light" ><%= tag.name %></span>
       <% end %>
     </div>
   </div>

@@ -1,10 +1,12 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
   <div class="d-flex">
     <%= link_to root_path, class: "navbar-brand" do %>
-      <%= image_tag "logo.png" %>
+      <h1 class="ml-3 mb-0 text-white">COOKIT</h1>
     <% end %>
-    <h1 class="mb-0">COOKIT</h1>
   </div>
+  <%= link_to root_path, class: "navbar--logo-hide" do %>
+    <%= image_tag "logo.png", class: "navbar--logo" %>
+  <% end %>
   <button class="navbar-toggler" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -12,23 +14,23 @@
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
         <%= link_to "#", class: "nav-link text-white mr-3" do  %>
-          <h5>What's New</h5>
+          <span>What's New</span>
         <% end %>
       </li>
       <li class="nav-item">
         <%= link_to "#", class: "nav-link text-white mr-3" do  %>
-          <h5>Popular</h5>
+          <span>Popular</span>
         <% end %>
       </li>
       <% if user_signed_in? %>
         <li class="nav-item">
           <%= link_to "#", class: "nav-link text-white mr-3" do  %>
-            <h5>Favourites</h5>
+            <span>Favourites</span>
           <% end %>
         </li>
         <li class="nav-item">
           <%= link_to destroy_user_session_path, method: "delete", class: "nav-link text-white mr-3" do  %>
-            <h5>Log Out</h5>
+            <span>Log Out</span>
           <% end %>
         </li>
         <li class="nav-item nav-avatar">
@@ -37,7 +39,7 @@
       <% else %>
         <li class="nav-item">
           <%= link_to new_user_session_path, class: "nav-link text-white mr-3" do  %>
-            <h5>Log In</h5>
+            <span>Log In</span>
           <% end %>
         </li>
       <% end %>
