@@ -1,0 +1,32 @@
+.kit {
+	&__info {
+		display: table;
+		width: 100%;
+		// grid-template-columns: 1fr 2fr;
+
+		&-left {
+			display: table-cell;
+			vertical-align: top;
+		}
+		&-right {
+			display: table-cell;
+		}
+	}
+
+	&__image {
+		width: 100%;
+		object-fit: cover;
+	}
+}
+@media only screen and (max-width: 600px) {
+	.kit__info {
+		display: flex;
+		flex-direction: column-reverse;
+		margin-bottom: 1rem;
+	}
+	div[class^="kit__info-"] {
+		display: block;
+		width: 100%;
+		margin-bottom: 1rem;
+	}
+}

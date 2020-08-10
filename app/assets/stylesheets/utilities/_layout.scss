@@ -6,3 +6,25 @@
 	margin-left: -50vw;
 	margin-right: -50vw;
 }
+
+html {
+	font-size: 0.8rem;
+}
+
+@include media-breakpoint-up(sm) {
+	html {
+		font-size: 0.8rem;
+	}
+}
+
+@include media-breakpoint-up(md) {
+	html {
+		font-size: 0.8rem;
+	}
+}
+
+@include media-breakpoint-up(lg) {
+	html {
+		font-size: 1rem;
+	}
+}

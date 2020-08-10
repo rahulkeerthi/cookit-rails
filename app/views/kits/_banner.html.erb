@@ -1,0 +1,33 @@
+<div class="jumbotron full-width banner--kit">
+  <div class="banner--left">
+    <h1 class="display-3"><%= restaurant.name %></h1>
+    <h2><%= restaurant.delivery_options %> from <%= restaurant.city %> </h2>
+    <div class="mb-3">
+      <% restaurant.tags.each do |tag| %>
+        <div class="badge badge-pill px-3 py-2 card__pill-dark">
+          <%= tag.name %>
+        </div>
+      <% end %>
+    </div>
+    <div class="lead d-flex justify-content-start">
+      <%= link_to restaurant.instagram, target: :_blank do %>
+        <i class="fab fa-instagram banner--socials"></i>
+      <% end if restaurant.instagram %>
+      <%= link_to restaurant.twitter, target: :_blank do %>
+        <i class="fab fa-twitter banner--socials"></i>
+      <% end if restaurant.twitter %>
+      <%= link_to restaurant.facebook, target: :_blank do %>
+        <i class="fab fa-facebook banner--socials"></i>
+      <% end if restaurant.facebook %>
+      <%= link_to restaurant.website_url, target: :_blank do %>
+        <i class="far fa-window-maximize banner--socials"></i>
+      <% end if restaurant.website_url %>
+      <%= mail_to restaurant.email, target: :_blank, subject: "Meal Kit Enquiry (via Cookit)" do %>
+        <i class="fas fa-envelope banner--socials"></i>
+      <% end if restaurant.email %>
+    </div>
+  </div>
+  <div class="banner--right align-self-center">
+    <p class="lead text-sm"><%= restaurant.description %></p>
+  </div>
+</div>

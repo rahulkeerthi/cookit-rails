@@ -3,7 +3,7 @@
     <h1>Our Kits</h1>
     <div class="card-columns">
       <% @kits.first(9).each do |kit| %>
-        <%= render partial: 'kits/kitcard', object: kit, as: :kit %>
+        <%= render 'kits/kitcard', kit: kit %>
       <% end %>
     </div>
   </div>
@@ -11,7 +11,7 @@
     <h1>Our Restaurants</h1>
     <div class="card-columns">
       <% @restaurants.first(9).each do |restaurant| %>
-        <%= render partial: 'restaurants/restaurantcard', object: restaurant, as: :restaurant %>
+        <%= render 'restaurants/restaurantcard', restaurant: restaurant %>
       <% end %>
     </div>
   </div>
