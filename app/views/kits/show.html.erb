@@ -1,17 +1,4 @@
 <%=  render 'banner', restaurant: @restaurant %>
-<div class="container kit__info">
-  <div class="kit__info-left">
-    <p class="h2 mr-3"><%= @kit.name %></p>
-    <p class="h2">£<%= @kit.price %></p>
-    <p><%= @kit.description %></p>
-    <hr>
-    <div>
-      <h5>Ingredients:</h5>
-      <p><%= @kit.ingredients %></p>
-      <%= link_to 'Visit the Website', @kit.link_url, class: "btn btn-primary" %>
-    </div>
-  </div>
-  <div class="kit__info-right">
-    <%= image_tag @kit.photos[0], alt: @kit.name, class: "kit__image" %>
-  </div>
+<%=  render 'kitinfo', kit: @kit %>
+<div class="container_fluid kits__related">
 </div>

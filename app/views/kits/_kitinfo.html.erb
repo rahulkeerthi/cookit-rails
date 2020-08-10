@@ -1,0 +1,22 @@
+<div class="container kit__info">
+  <div class="kit__info-left">
+    <p class="h2 mr-3"><%= kit.name %></p>
+    <p class="h2">£<%= kit.price %></p>
+    <p><%= kit.description %></p>
+    <hr>
+    <div>
+      <h5>Ingredients:</h5>
+      <p><%= kit.ingredients || "Not available" %></p>
+      <%= link_to 'Visit the Website', kit.link_url, class: "btn btn-primary text-white", target: :blank %>
+    </div>
+  </div>
+  <div class="kit__info-right">
+    <div class="main-carousel">
+      <% kit.photos.each do |photo| %>
+        <div class="carousel-cell">
+          <%= image_tag photo, alt: kit.name %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
