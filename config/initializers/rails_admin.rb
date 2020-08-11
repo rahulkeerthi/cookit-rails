@@ -1,12 +1,21 @@
 RailsAdmin.config do |config|
-
   ### Popular gems integration
 
   ## == Devise ==
   # config.authenticate_with do
   #   warden.authenticate! scope: :user
   # end
-  # config.current_user_method(&:current_user)
+  config.current_user_method(&:current_user)
+
+  RailsAdmin.config do |config|
+    config.authorize_with do
+      if current_user.nil?
+        redirect_to main_app.new_user_session_path, flash: { error: 'Please log in to continue..' }
+      elsif !current_user.admin?
+        redirect_to main_app.root_path, flash: { error: 'Admin access required' }
+      end
+    end
+  end
 
   ## == CancanCan ==
   # config.authorize_with :cancancan
