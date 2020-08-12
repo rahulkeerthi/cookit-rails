@@ -1,18 +1,26 @@
 <div class="container py-3">
   <div>
-    <h1>Our Kits</h1>
+    <% if @kits.empty? && @restaurants.empty? %>
+      <h1>No Results Found</h1>
+    <% else %>
+      <h1><%= @query ? "Results for " + @query.titlecase : "Our Kits" %></h1>
+    <% end %>
     <div class="card-columns">
-      <% @kits.first(9).each do |kit| %>
+      <% @kits.each do |kit| %>
         <%= render 'kits/kitcard', kit: kit %>
       <% end %>
+      <% unless @query %>
+      </div>
     </div>
-  </div>
-  <div>
-    <h1>Our Restaurants</h1>
-    <div class="card-columns">
-      <% @restaurants.first(9).each do |restaurant| %>
+    <div>
+      <h1>Our Restaurants</h1>
+      <div class="card-columns">
+      <% end %>
+      <% @restaurants.each do |restaurant| %>
         <%= render 'restaurants/restaurantcard', restaurant: restaurant %>
       <% end %>
     </div>
-  </div>
+    <% unless @query %>
+    </div>
+  <% end %>
 </div>

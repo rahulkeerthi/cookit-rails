@@ -24,6 +24,7 @@
 #
 require 'uri'
 class Kit < ApplicationRecord
+  searchkick word_start: [:name]
   belongs_to :restaurant
   has_many :kit_tags
   has_many :tags, through: :kit_tags

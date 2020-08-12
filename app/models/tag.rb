@@ -8,6 +8,7 @@
 #  updated_at :datetime         not null
 #
 class Tag < ApplicationRecord
+  searchkick word_start: [:name]
   has_many :restaurant_tags
   has_many :restaurants, through: :restaurant_tags
   has_many :kit_tags

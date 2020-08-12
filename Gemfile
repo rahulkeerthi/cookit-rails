@@ -35,6 +35,8 @@ gem 'autoprefixer-rails'
 gem 'font-awesome-sass'
 gem 'simple_form'
 gem 'aws-sdk-s3', require: false
+gem 'searchkick'
+
 
 group :development, :test do  gem 'pry-byebug'
   gem 'pry-rails'

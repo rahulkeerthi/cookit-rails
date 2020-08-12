@@ -13,6 +13,9 @@
     <div class="d-flex flex-column justify-content-between min-vh-100">
       <%= render 'shared/navbar' %>
       <div class="container-fluid">
+        <% if current_page?(root_path) %>
+          <%= render 'shared/search' %>
+        <% end %>
         <%= yield %>
       </div>
       <%= render 'shared/footer' %>
