@@ -1,31 +1,22 @@
 <div class="container py-3">
-  <div>
-    <% if @no_results %>
-      <h1>Nothing found, but perhaps try these kits...</h1>
-      <% @kits = Kit.take(6) %>
-    <% elsif @kits.empty? && !@restaurants.empty? %>
-      <h1>No kits founds, but here are restaurants that match</h1>
-    <% else %>
-      <h1><%= params[:search] ? "Kit Results" : "Our Kits" %></h1>
-    <% end %>
-    <div class="card__layout">
-      <% @kits.each do |kit| %>
-        <%= render 'kits/kitcard', kit: kit %>
-      <% end %>
+  <% if params[:search] %>
+    <%= render 'pages/search_results', kits: @kits, restaurants: @restaurants, no_results: @no_results %>
+  <% else %>
+    <div>
+      <h1>Our Kits</h1>
+      <div class="card__layout">
+        <% @kits.each do |kit| %>
+          <%= render 'kits/kitcard', kit: kit %>
+        <% end %>
+      </div>
     </div>
-  </div>
-  <div>
-    <% if @no_results %>
-      <h1>And these restaurants?</h1>
-      <% @restaurants = Restaurant.take(6) %>
-    <% elsif @kits.empty? && !@restaurants.empty? %>
-    <% else %>
-      <h1><%= params[:search] ? "Restaurant Results" : "Our Restaurants" %></h1>
-    <% end %>
-    <div class="card__layout">
-      <% @restaurants.each do |restaurant| %>
-        <%= render 'restaurants/restaurantcard', restaurant: restaurant %>
-      <% end %>
+    <div>
+      <h1>Our Restaurants</h1>
+      <div class="card__layout">
+        <% @restaurants.each do |restaurant| %>
+          <%= render 'restaurants/restaurantcard', restaurant: restaurant %>
+        <% end %>
+      </div>
     </div>
-  </div>
+  <% end %>
 </div>
