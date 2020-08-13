@@ -1,13 +1,13 @@
 <%= link_to kit_path(kit) do %>
   <div class="card">
-    <img class="card-img-top" src=<%= url_for(kit.photos.first) %> alt=<%= kit.name %> style="height: 15rem; object-fit: cover; filter: brightness(70%);">
-    <div class="card-img-overlay d-flex flex-column justify-content-center">
+    <%= image_tag kit.photos.first, alt: kit.name, class: 'card-img-top card__photo-darken' %>
+    <div class="card-img-overlay d-flex">
       <h2 class="card-title pt-5 text-white" ><%= kit.name %></h2>
     </div>
     <div class="card-body d-flex justify-content-between">
       <div>
-        <h5 class="card-text"><%= kit.restaurant.name %></h5>
-        <h5 class="card-text text-dark"><%= kit.restaurant.delivery_options %></h5>
+        <h5 class="card-text"><%= kit.restaurant_name %></h5>
+        <h6 class="card-text text-dark"><%= kit.restaurant_delivery_options %></h6>
       </div>
       <h2 class="card-title align-self-center">£<%= kit.price.to_i %></h2>
     </div>

@@ -12,6 +12,7 @@
 #  email            :string
 #  facebook         :string
 #  instagram        :string
+#  kits_count       :integer
 #  map_lat          :float
 #  map_long         :float
 #  name             :string

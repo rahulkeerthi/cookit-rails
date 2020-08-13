@@ -9,7 +9,7 @@
 
 		&-left {
 			// display: flex;
-			vertical-align: top;
+			// vertical-align: top;
 		}
 		&-right {
 			height: 100%;
@@ -36,7 +36,6 @@
 }
 
 .carousel-cell {
-	// height: 300px;
 	margin-bottom: 2rem;
 	> img {
 		display: block;
@@ -53,6 +52,5 @@
 
 	.carousel-cell > img {
 		height: 600px;
-		// width: 80%;
 	}
 }

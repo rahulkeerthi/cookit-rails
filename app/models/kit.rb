@@ -25,7 +25,7 @@
 require 'uri'
 class Kit < ApplicationRecord
   searchkick word_start: [:name]
-  belongs_to :restaurant
+  belongs_to :restaurant, counter_cache: true
   has_many :kit_tags
   has_many :tags, through: :kit_tags
   has_many_attached :photos
@@ -45,6 +45,14 @@ class Kit < ApplicationRecord
       photos << photo.service_url
     end
     photos
+  end
+
+  def restaurant_name
+    restaurant.name
+  end
+
+  def restaurant_delivery_options
+    restaurant.delivery_options
   end
 
   # TODO: ingredients is currently a string - should we save as an stringified array or a text description or...? Might be some value in storing ingredients to enable a polymorphic search (restaurants, kits, ingredients, descriptions, locations, etc.)

@@ -4,11 +4,21 @@ class PagesController < ApplicationController
   def home
     @kits = Kit.all
     @restaurants = Restaurant.all
-    if params[:search]
-      @query = params[:search][:query]
-      @kits = Kit.search @query, fields: %i[name description ingredients], operator: "or", match: :word_start
-      @restaurants = Restaurant.search @query, fields: %i[name city], operator: "or", match: :word_start
-      @tags = Tag.search @query, operator: "or", match: :word_start
+    @no_results = false
+    search if params[:search]
+  end
+
+  def search
+    @no_results = false
+    @query = search_params[:query]
+    @kits = Kit.search @query, fields: %i[name description ingredients], operator: "or", match: :word_start
+    @restaurants = Restaurant.search @query, fields: %i[name city], operator: "or", match: :word_start
+    @no_results = @kits.empty? && @restaurants.empty?
+    tags = @kits.to_a.collect { |v| v.tags.to_a }.flatten
+    @taglist = {}
+    count = 0
+    tags.each do |tag|
+      @taglist[tag.name] ? @taglist[tag.name] += 1 : @taglist[tag.name] = 1
     end
   end
 
@@ -19,5 +29,11 @@ class PagesController < ApplicationController
   end
 
   def tc
+  end
+
+  private
+
+  def search_params
+    params.require(:search).permit(:query)
   end
 end
