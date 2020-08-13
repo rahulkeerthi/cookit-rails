@@ -3,28 +3,28 @@
     <%= render 'pages/search_results', kits: @kits, restaurants: @restaurants, no_results: @no_results %>
   <% else %>
     <div>
-      <h1>Our Kits</h1>
+      <h1 id="kits">Our Kits</h1>
       <div class="card__layout">
         <% @kits.each do |kit| %>
           <%= render 'kits/kitcard', kit: kit %>
         <% end %>
       </div>
       <div class="pagination__nav">
-        <%= paginate @kits, param_name: :kit_page %>
+        <%= paginate @kits, param_name: :kit_page, params: { anchor: 'kits' } %>
         <div class="pagination__nav-status">
           <%= page_entries_info @kits %>
         </div>
       </div>
     </div>
     <div>
-      <h1>Our Restaurants</h1>
+      <h1 id="restaurants">Our Restaurants</h1>
       <div class="card__layout">
         <% @restaurants.each do |restaurant| %>
           <%= render 'restaurants/restaurantcard', restaurant: restaurant, remote: true %>
         <% end %>
       </div>
       <div class="pagination__nav">
-        <%= paginate @restaurants, param_name: :restaurant_page %>
+        <%= paginate @restaurants, param_name: :restaurant_page, params: { anchor: 'restaurants' } %>
         <div class="pagination__nav-status">
           <%= page_entries_info @restaurants %>
         </div>
