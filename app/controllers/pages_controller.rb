@@ -2,8 +2,8 @@ class PagesController < ApplicationController
   skip_before_action :authenticate_user!, only: [:home]
 
   def home
-    @kits = Kit.all
-    @restaurants = Restaurant.all
+    @kits = Kit.order(created_at: :desc).page(params[:kit_page])
+    @restaurants = Restaurant.order(created_at: :desc).page(params[:restaurant_page])
     @no_results = false
     search if params[:search]
   end

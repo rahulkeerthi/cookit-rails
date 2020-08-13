@@ -37,6 +37,8 @@ gem 'simple_form'
 gem 'aws-sdk-s3', require: false
 gem 'searchkick'
 gem 'turbolinks_render'
+gem 'kaminari'
+
 
 
 

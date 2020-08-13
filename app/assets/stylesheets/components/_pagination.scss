@@ -1,0 +1,16 @@
+.pagination {
+	justify-content: center;
+	&__nav {
+		.pagination > span {
+			font-family: "IM Fell English";
+			font-size: 2rem;
+			padding: 0 0.5rem;
+		}
+	}
+}
+
+.pagination__nav-status {
+	text-align: center;
+	font-family: "Lato";
+	color: $text-hint;
+}

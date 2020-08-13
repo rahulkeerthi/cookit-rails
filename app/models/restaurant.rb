@@ -26,6 +26,7 @@ require 'uri'
 
 class Restaurant < ApplicationRecord
   searchkick word_start: [:name]
+  paginates_per 6
   has_many :restaurant_tags
   has_many :tags, through: :restaurant_tags
   has_many_attached :photos

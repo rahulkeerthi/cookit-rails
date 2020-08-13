@@ -1,0 +1,11 @@
+.button__back {
+	position: absolute;
+	top: 50%;
+	left: 2%;
+}
+
+@media screen and (max-width: 1400px) {
+	.button__back {
+		display: none;
+	}
+}
