@@ -8,6 +8,12 @@
 	width: 400px;
 }
 
+@media screen and (max-width: 400px) {
+	.search-form-control {
+		width: 250px;
+	}
+}
+
 .form-group {
 	margin-bottom: 0px;
 }
