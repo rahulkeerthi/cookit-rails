@@ -5,12 +5,40 @@
 
 .search-form-control {
 	position: relative;
-	width: 400px;
+	// width: 400px;
 }
 
-@media screen and (max-width: 400px) {
-	.search-form-control {
-		width: 250px;
+#search--home {
+	width: 600px;
+}
+
+@media screen and (max-width: 576px) {
+	#search--home {
+		width: 90vw;
+	}
+}
+@media screen and (max-width: 840px) {
+	#search--home {
+		width: 60vw;
+	}
+}
+
+.simple_form {
+	width: 400px;
+	margin-left: 20%;
+}
+
+@media screen and (max-width: 1400px) {
+	.simple_form {
+		margin-left: 0;
+	}
+}
+
+@media screen and (max-width: 576px) {
+	.simple_form {
+		width: auto;
+		flex-grow: 1;
+		margin-right: 1rem;
 	}
 }
 

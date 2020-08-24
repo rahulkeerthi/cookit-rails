@@ -22,6 +22,22 @@
 		z-index: 2;
 		font-size: 10rem;
 	}
+
+	@media screen and (max-width: 420px) {
+		&__container {
+			margin-bottom: 1rem;
+			> img {
+				width: 200px;
+			}
+		}
+		&__text-overlay {
+			font-size: 6rem;
+		}
+
+		p {
+			font-size: 0.8rem;
+		}
+	}
 }
 
 @keyframes strobe {
