@@ -1,18 +1,45 @@
-#logo__ {
-	&container {
+#logo {
+	&__container {
 		position: relative;
 		> img {
 			position: relative;
-			z-index: 10;
+			z-index: 3;
 		}
 	}
 
-	&text-overlay {
+	&__image {
+		animation-name: strobe;
+		animation-duration: 4s;
+		animation-iteration-count: infinite;
+		animation-timing-function: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+	}
+
+	&__text-overlay {
 		position: absolute;
 		top: 50%;
 		left: 50%;
 		transform: translate(-50%, -50%);
-		z-index: 1;
+		z-index: 2;
 		font-size: 10rem;
+	}
+}
+
+@keyframes strobe {
+	0% {
+		filter: unset;
+		z-index: 4;
+		transform: scale(1.1);
+	}
+
+	50% {
+		filter: blur(10px);
+		z-index: 0;
+		transform: scale(1);
+	}
+
+	100% {
+		filter: unset;
+		z-index: 4;
+		transform: scale(1.1);
 	}
 }
