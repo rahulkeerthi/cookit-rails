@@ -1,5 +1,5 @@
 class PagesController < ApplicationController
-  skip_before_action :authenticate_user!, only: [:home]
+  skip_before_action :authenticate_user!, except: [:favourites]
 
   def home
     @kits = Kit.order(created_at: :desc).page(params[:kit_page])
