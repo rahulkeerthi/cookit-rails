@@ -6,15 +6,15 @@
   <% else %>
     <h1>Kit Results</h1>
   <% end %>
-  <div>
+  <!--  <div>
     <ul class="list-group list-group-horizontal">
-      <% @taglist.each do |tag| %>
-        <%= link_to root_path(search: { query: tag[0] }) do %>
+      <%# @taglist.each do |tag| %>
+        <%#= link_to root_path(search: { query: tag[0] }) do %>
           <li class="badge badge-primary px-3 py-1 text-white"><%= tag[0] %> <%= tag[1] %></li>
-        <% end %>
-      <% end %>
-    </ul>
-  </div>
+          <%# end %>
+          <%# end %>
+        </ul>
+      </div> -->
   <div class="card__layout">
     <% @kits.each do |kit| %>
       <%= render 'kits/kitcard', kit: kit %>
