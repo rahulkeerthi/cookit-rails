@@ -3,7 +3,7 @@
     <img class="card-img-top" src=<%= url_for(restaurant.photos.first) %> alt=<%= restaurant.name %> >
     <div class="card-body">
       <h3 class="card-title"><%= restaurant.name %></h3>
-      <h4 class="card-title"><%= pluralize(restaurant.kits.count, "kit") %> available</h4>
+      <h4 class="card-title"><%= pluralize(restaurant.kits_count, "kit") %> available</h4>
       <h6 class="card-title text-primary"><%= restaurant.delivery_options %></h6>
       <% restaurant.tags.each do |tag| %>
         <span class="badge badge-pill px-3 py-2 card__pill-light" ><%= tag.name %></span>
