@@ -9,8 +9,24 @@
 		padding-right: 10vw;
 	}
 
+	&--restaurant {
+		background-color: $background-tertiary;
+		color: $text-secondary;
+		display: grid;
+		grid-template-columns: 2fr 1fr;
+		gap: 1rem;
+		padding-left: 10vw;
+		padding-right: 10vw;
+	}
+
 	@media screen and (max-width: 400px) {
 		&--kit {
+			display: block;
+			padding: inherit;
+			padding-bottom: 1rem;
+		}
+
+		&--restaurant {
 			display: block;
 			padding: inherit;
 			padding-bottom: 1rem;
@@ -19,6 +35,13 @@
 
 	@media screen and (max-width: 768px) {
 		&--kit {
+			display: block;
+			grid-template-columns: 1fr 1fr;
+			padding: inherit;
+			padding-bottom: 1rem;
+		}
+
+		&--restaurant {
 			display: block;
 			grid-template-columns: 1fr 1fr;
 			padding: inherit;

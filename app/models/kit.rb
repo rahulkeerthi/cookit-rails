@@ -56,6 +56,11 @@ class Kit < ApplicationRecord
     restaurant.delivery_options
   end
 
-  # TODO: ingredients is currently a string - should we save as an stringified array or a text description or...? Might be some value in storing ingredients to enable a polymorphic search (restaurants, kits, ingredients, descriptions, locations, etc.)
-  # TODO: how do we implement delivery options? Each kit should only have one (i.e. all mutually exclusive), but each restaurant might have one or more (UK delivery, EU delivery, click and collect, etc.) if the kits have different options. We could do a look-up from kits to a delivery_options table. At some point, we will need to bubble up these options from the kits to the relevant restaurant so we can display one or more options available with that restaurant (e.g. "We do Click and Collect and UK Delivery")
+  def search_data
+    {
+      name: name,
+      ingredients: ingredients,
+      kit_tags: restaurant.tags.map(&:name)
+    }
+  end
 end

@@ -1,28 +1,40 @@
 <div>
-  <% if no_results %>
+  <% if @no_results %>
     <h1>Nothing found, but perhaps try these kits...</h1>
-    <% kits = Kit.take(6) %>
-  <% elsif kits.empty? && !restaurants.empty? %>
-    <h1>No kits founds, but here are restaurants that match</h1>
+    <% @kits = Kit.take(6) %>
+  <% elsif @kits.empty? && !@restaurants.empty? %>
   <% else %>
     <h1>Kit Results</h1>
   <% end %>
+  <div>
+    <ul class="list-group list-group-horizontal">
+      <% @taglist.each do |tag| %>
+        <%= link_to root_path(search: { query: tag[0] }) do %>
+          <li class="badge badge-primary px-3 py-1 text-white"><%= tag[0] %> <%= tag[1] %></li>
+        <% end %>
+      <% end %>
+    </ul>
+  </div>
   <div class="card__layout">
-    <% kits.each do |kit| %>
+    <% @kits.each do |kit| %>
       <%= render 'kits/kitcard', kit: kit %>
     <% end %>
   </div>
 </div>
 <div>
-  <% if no_results %>
+  <% if @no_results %>
     <h1>And these restaurants?</h1>
-    <% restaurants = Restaurant.take(6) %>
-  <% elsif kits.empty? && !restaurants.empty? %>
+    <% @restaurants = Restaurant.take(6) %>
+  <% elsif @kits.empty? && !@restaurants.empty? %>
+    <h1>No kits founds, but here are restaurants that match</h1>
+  <% elsif @restaurants.empty? %>
+    <h1>No restaurant matches, but perhaps try these?</h1>
+    <% @restaurants = Restaurant.take(6) %>
   <% else %>
     <h1>Restaurant Results</h1>
   <% end %>
   <div class="card__layout">
-    <% restaurants.each do |restaurant| %>
+    <% @restaurants.each do |restaurant| %>
       <%= render 'restaurants/restaurantcard', restaurant: restaurant %>
     <% end %>
   </div>

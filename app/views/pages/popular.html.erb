@@ -1,0 +1,10 @@
+<div class="container my-5">
+  <h1>Popular Meal Kits</h1>
+  <div>
+    <div class="card__layout">
+      <% @kits.each do |kit| %>
+        <%= render 'kits/kitcard', kit: kit %>
+      <% end %>
+    </div>
+  </div>
+</div>

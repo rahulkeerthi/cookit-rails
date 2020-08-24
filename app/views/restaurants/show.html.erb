@@ -1,0 +1,16 @@
+<%=  render 'banner', restaurant: @restaurant %>
+<div class="container my-5">
+  <h1><%= @restaurant.name %> Kits</h1>
+  <div class="card__layout">
+    <% @restaurant_kits.each do |kit| %>
+      <%=  render 'kits/kitcard', kit: kit %>
+    <% end %>
+  </div>
+  <h1><%= @unrelated ? "Other Kits to Consider" : "Related Kits" %></h1>
+  <div class="card__layout">
+    <% @related_kits.each do |kit| %>
+      <%=  render 'kits/kitcard', kit: kit %>
+    <% end %>
+  </div>
+  <%= link_to "Back", url_for(:back), class: "btn btn-primary button__back" %>
+</div>

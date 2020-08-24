@@ -1,6 +1,6 @@
 <div class="container">
   <h1>Our Restaurants</h1>
-  <div class="card-columns">
+  <div class="card__layout">
     <% @restaurants.each do |restaurant| %>
       <%= render partial: 'restaurants/restaurantcard', object: restaurant, as: :restaurant %>
     <% end %>

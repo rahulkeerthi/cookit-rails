@@ -1,0 +1,19 @@
+<div class="container my-5">
+  <p class="h4">Here are some of our recently added Meal Kits and Restuarants</p>
+  <div>
+    <h1 id="kits">Kits</h1>
+    <div class="card__layout">
+      <% @kits.each do |kit| %>
+        <%= render 'kits/kitcard', kit: kit %>
+      <% end %>
+    </div>
+  </div>
+  <div>
+    <h1 id="restaurants">Restaurants</h1>
+    <div class="card__layout">
+      <% @restaurants.each do |restaurant| %>
+        <%= render 'restaurants/restaurantcard', restaurant: restaurant, remote: true %>
+      <% end %>
+    </div>
+  </div>
+</div>

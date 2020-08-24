@@ -11,12 +11,11 @@ class PagesController < ApplicationController
   def search
     @no_results = false
     @query = search_params[:query]
-    @kits = Kit.search @query, fields: %i[name description ingredients], operator: "or", match: :word_start
-    @restaurants = Restaurant.search @query, fields: %i[name city], operator: "or", match: :word_start
+    @kits = Kit.search @query, fields: %i[name ingredients kit_tags], operator: "or"
+    @restaurants = Restaurant.search @query, fields: %i[name description city restaurant_tags], operator: "or"
     @no_results = @kits.empty? && @restaurants.empty?
     tags = @kits.to_a.collect { |v| v.tags.to_a }.flatten
     @taglist = {}
-    count = 0
     tags.each do |tag|
       @taglist[tag.name] ? @taglist[tag.name] += 1 : @taglist[tag.name] = 1
     end
@@ -29,6 +28,18 @@ class PagesController < ApplicationController
   end
 
   def tc
+  end
+
+  def new
+    @kits = Kit.order(created_at: :desc).limit(6)
+    @restaurants = Restaurant.order(created_at: :desc).limit(6)
+  end
+
+  def popular
+    @kits = Kit.first(6)
+  end
+
+  def favourites
   end
 
   private

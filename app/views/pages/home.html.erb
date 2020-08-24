@@ -1,6 +1,6 @@
 <div class="container py-3">
   <% if params[:search] %>
-    <%= render 'pages/search_results', kits: @kits, restaurants: @restaurants, no_results: @no_results %>
+    <%= render 'pages/search_results' %>
   <% else %>
     <div>
       <h1 id="kits">Our Kits</h1>

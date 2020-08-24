@@ -38,7 +38,8 @@ gem 'aws-sdk-s3', require: false
 gem 'searchkick'
 gem 'turbolinks_render'
 gem 'kaminari'
-
+gem 'devise'
+gem 'ahoy_matey'
 
 
 

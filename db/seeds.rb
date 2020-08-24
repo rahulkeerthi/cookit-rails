@@ -91,7 +91,7 @@ kits_data[:records].each do |record|
     tag = tags_data[:records].find { |x| x[:id] == tag_id}
     # find tag in db that matches the name of the tag
     tag = Tag.find_by_name(tag[:fields][:name])
-    # create RestaurantTag with each for the restaurant we just created
+    # create KitTag with each for the restaurant we just created
     KitTag.create!(kit: kit, tag: tag)
   end
 end

@@ -45,6 +45,16 @@
 	}
 }
 
+.restaurant--carousel-cell {
+	margin-bottom: 2rem;
+	> img {
+		display: block;
+		height: 300px;
+		width: fit-content;
+		object-fit: contain;
+	}
+}
+
 @media (min-width: 800px) {
 	// .carousel-cell {
 	// 	height: 600px;
@@ -52,5 +62,9 @@
 
 	.carousel-cell > img {
 		height: 600px;
+	}
+
+	.restaurant--carousel-cell > img {
+		height: 400px;
 	}
 }

@@ -2,6 +2,9 @@ Rails.application.routes.draw do
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   devise_for :users
   root to: 'pages#home'
+  get 'new', to: 'pages#new'
+  get 'popular', to: 'pages#popular'
+  get 'favourites', to: 'pages#favourites'
   get 'about', to: 'pages#about'
   get 'contact-us', to: 'pages#contact'
   get 'tc', to: 'pages#contact'

@@ -1,6 +1,6 @@
 <div class="container">
   <h1>All Kits</h1>
-  <div class="card-columns">
+  <div class="card__layout">
     <% @kits.each do |kit| %>
       <%= render partial: 'kits/kitcard', object: kit, as: :kit %>
     <% end %>

@@ -1,4 +1,4 @@
-<div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
+<div class="navbar navbar-expand-sm navbar-light navbar--lewagon sticky-top">
   <% if current_page?(root_path) %>
     <div class="d-flex">
       <%= link_to root_path, class: "navbar-brand" do %>
@@ -6,14 +6,18 @@
       <% end %>
     </div>
   <% end %>
-  <%= link_to root_path, class: "navbar--logo-hide" do %>
-    <%= image_tag "logo.png", class: "navbar--logo" %>
+  <%= link_to root_path, class: "navbar__logo--hide" do %>
+    <% if current_page?(root_path) %>
+      <%= image_tag "logo.png", class: "navbar__logo" %>
+    <% else %>
+      <%= image_tag "logo.png", class: "navbar__logo navbar__logo--left" %>
+    <% end %>
   <% end %>
   <% unless current_page?(root_path) %>
-    <%= simple_form_for :search, url: root_path, method: :get, class: 'justify-self-center' do |f| %>
-      <div class="search-form-control form-group">
+    <%= simple_form_for :search, url: root_path, method: :get do |f| %>
+      <div class="search-form-control form-group navbar__search">
         <input class="form-control string required" type="text" name="search[query]" id="search_query" value="<%= params[:search][:query] if params[:search] %>"/>
-        <button type="submit" class="btn btn-flat">
+        <button  type="submit" class="btn btn-flat">
           <i class="fas fa-search"></i> Search
         </button>
       </div>
@@ -25,18 +29,18 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
-        <%= link_to "#", class: "nav-link text-white mr-3" do  %>
+        <%= link_to new_path, class: "nav-link text-white mr-3" do  %>
           <span>What's New</span>
         <% end %>
       </li>
       <li class="nav-item">
-        <%= link_to "#", class: "nav-link text-white mr-3" do  %>
+        <%= link_to popular_path, class: "nav-link text-white mr-3" do  %>
           <span>Popular</span>
         <% end %>
       </li>
       <% if user_signed_in? %>
         <li class="nav-item">
-          <%= link_to "#", class: "nav-link text-white mr-3" do  %>
+          <%= link_to favourites_path, class: "nav-link text-white mr-3" do  %>
             <span>Favourites</span>
           <% end %>
         </li>

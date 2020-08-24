@@ -31,7 +31,6 @@ class Restaurant < ApplicationRecord
   has_many :tags, through: :restaurant_tags
   has_many_attached :photos
   has_one_attached :logo
-
   has_many :kits, dependent: :destroy
 
   validates :name, presence: true, length: { minimum: 6 }
@@ -47,6 +46,15 @@ class Restaurant < ApplicationRecord
   validates :website_url, presence: true, format: { with: URI::DEFAULT_PARSER.make_regexp(%w[http https]) }
   validates :email, allow_blank: true, format: { with: /\A([\w+\-].?)+@[a-z\d\-]+(\.[a-z]+)*\.[a-z]+\z/i, message: 'Not a valid email address' }
 
+  def search_data
+    {
+      name: name,
+      description: description,
+      city: city,
+      restaurant_tags: tags.map(&:name)
+    }
+  end
+
   def kit_count
     kits.count
   end
@@ -55,6 +63,12 @@ class Restaurant < ApplicationRecord
     logo.service_url
   end
 
-  # TODO: add geocoding (long, lat columns) with a geocoder gem/API (Mapbox? Google?)
-  # TODO: add logo and photos for restaurants (Cloudinary or something else?)
+  def related_kits
+    kits = Kit.where.not(restaurant: self)
+    own_tags = tags.map(&:name)
+    selected = kits.select do |kit|
+      (kit.tags.map(&:name) & own_tags).any?
+    end
+    selected.first(6)
+  end
 end

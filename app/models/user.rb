@@ -22,4 +22,8 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
+
+  validates :admin, presence: true
+  validates :email, presence: true
+  has_many :visits, class_name: "Ahoy::Visit"
 end

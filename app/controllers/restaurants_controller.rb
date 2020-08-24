@@ -7,6 +7,14 @@ class RestaurantsController < ApplicationController
   end
 
   def show
+    @restaurant_kits = @restaurant.kits
+    if @restaurant.related_kits.empty?
+      @related_kits = Kit.take(6)
+      @unrelated = true
+    else
+      @related_kits = @restaurant.related_kits
+      @unrelated = false
+    end
   end
 
   def edit

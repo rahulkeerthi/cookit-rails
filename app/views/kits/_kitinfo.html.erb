@@ -1,7 +1,7 @@
 <div class="container kit__info">
   <div class="kit__info-left">
     <p class="h2 mr-3"><%= kit.name %></p>
-    <p class="h2">£<%= kit.price %></p>
+    <p class="h2">£<%= number_with_precision(kit.price, precision: 2, strip_insignificant_zeros: true) %></p>
     <p><%= kit.description %></p>
     <hr>
     <div>

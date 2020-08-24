@@ -9,7 +9,7 @@
         <h5 class="card-text"><%= kit.restaurant_name %></h5>
         <h6 class="card-text text-dark"><%= kit.restaurant_delivery_options %></h6>
       </div>
-      <h2 class="card-title align-self-center">£<%= kit.price.to_i %></h2>
+      <h2 class="card-title align-self-center">£<%= number_with_precision(kit.price, precision: 2, strip_insignificant_zeros: true) %></h2>
     </div>
   </div>
 <% end %>
