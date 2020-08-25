@@ -272,6 +272,7 @@ GEM
       diff-lcs (>= 1.2.0, < 2.0)
       rspec-support (~> 3.9.0)
     rspec-support (3.9.3)
+    ruby_http_client (3.5.1)
     rubyzip (2.3.0)
     safely_block (0.3.0)
       errbase (>= 0.1.1)
@@ -292,6 +293,8 @@ GEM
     selenium-webdriver (3.142.7)
       childprocess (>= 0.5, < 4.0)
       rubyzip (>= 1.2.2)
+    sendgrid-ruby (6.3.4)
+      ruby_http_client (~> 3.4)
     simple_form (5.0.2)
       actionpack (>= 5.0)
       activemodel (>= 5.0)
@@ -370,6 +373,7 @@ DEPENDENCIES
   sass-rails (>= 6)
   searchkick
   selenium-webdriver
+  sendgrid-ruby
   simple_form
   spring
   spring-watcher-listen (~> 2.0.0)

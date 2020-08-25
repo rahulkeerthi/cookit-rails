@@ -41,6 +41,7 @@ gem 'kaminari'
 gem 'devise'
 gem 'ahoy_matey'
 gem 'invisible_captcha'
+gem 'sendgrid-ruby'
 
 
 
