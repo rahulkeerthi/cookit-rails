@@ -1,5 +1,7 @@
 class ContactsController < ApplicationController
   invisible_captcha only: [:create]
+  skip_before_action :authenticate_user!
+
 
   def create
     @contact = Contact.new(contact_params)
