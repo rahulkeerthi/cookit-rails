@@ -24,7 +24,7 @@
 #
 require 'uri'
 class Kit < ApplicationRecord
-  searchkick word_start: [:name]
+  searchkick word_start: %i[name kit_tags]
   paginates_per 6
   belongs_to :restaurant, counter_cache: true
   has_many :kit_tags

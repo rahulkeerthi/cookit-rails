@@ -8,19 +8,6 @@ class PagesController < ApplicationController
     search if params[:search]
   end
 
-  def search
-    @no_results = false
-    @query = search_params[:query]
-    @kits = Kit.search @query, fields: %i[name ingredients kit_tags], operator: "or"
-    @restaurants = Restaurant.search @query, fields: %i[name description city restaurant_tags], operator: "or"
-    @no_results = @kits.empty? && @restaurants.empty?
-    tags = @kits.to_a.collect { |v| v.tags.to_a }.flatten
-    @taglist = {}
-    tags.each do |tag|
-      @taglist[tag.name] ? @taglist[tag.name] += 1 : @taglist[tag.name] = 1
-    end
-  end
-
   def about
   end
 
@@ -43,6 +30,19 @@ class PagesController < ApplicationController
   end
 
   private
+
+  def search
+    @no_results = false
+    @query = search_params[:query]
+    @kits = Kit.search @query, fields: %i[name ingredients kit_tags], operator: "or", match: :word_start
+    @restaurants = Restaurant.search @query, fields: %i[name description city restaurant_tags], operator: "or", match: :word_start
+    @no_results = @kits.empty? && @restaurants.empty?
+    tags = @kits.to_a.collect { |v| v.tags.to_a }.flatten
+    @taglist = {}
+    tags.each do |tag|
+      @taglist[tag.name] ? @taglist[tag.name] += 1 : @taglist[tag.name] = 1
+    end
+  end
 
   def search_params
     params.require(:search).permit(:query)
