@@ -30,6 +30,11 @@ import "flickity-imagesloaded";
 // import { initSelect2 } from '../components/init_select2';
 // import { toggleController } from "./dropdown";
 
+document.addEventListener("turbolinks:before-cache", () => {
+	window.removeEventListener("resize", closeMenusOnResize, false);
+	toggle.removeEventListener("click", toggleMenu, false);
+});
+
 document.addEventListener("turbolinks:load", () => {
 	// CAROUSELS
 	const carousel = document.querySelector(".main-carousel");
