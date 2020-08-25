@@ -1,0 +1,30 @@
+.form__defaults {
+	&--input {
+		font-family: $body-font;
+		font-size: 1.5rem;
+	}
+	&--label {
+		font-family: $headers-font;
+		font-size: 2rem;
+	}
+	&--btn {
+		font-size: 1.5rem;
+		font-family: $body-font;
+		transition: all ease-in 0.2s;
+
+		&:hover {
+			transform: scale(1.02);
+			transition: all ease-in 0.2s;
+		}
+	}
+}
+
+.new_contact {
+	width: 60vw;
+}
+
+@media screen and (max-width: 600px) {
+	.new_contact {
+		width: 90vw;
+	}
+}

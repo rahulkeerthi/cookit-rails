@@ -1,5 +1,6 @@
 class PagesController < ApplicationController
   skip_before_action :authenticate_user!, except: [:favourites]
+  invisible_captcha only: [:contact_us]
 
   def home
     @kits = Kit.order(created_at: :desc).page(params[:kit_page])
@@ -11,7 +12,8 @@ class PagesController < ApplicationController
   def about
   end
 
-  def contact_us
+  def contact
+    @contact = Contact.new
   end
 
   def tc

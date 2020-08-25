@@ -1,0 +1,13 @@
+<div class="container my-5">
+  <h1>Contact Us</h1>
+  <h3 class="mb-5">If you have any feedback, suggestions or 🐛 reports, we'd love to hear from you!</h3>
+  <div class="form__wrapper">
+    <%= simple_form_for(@contact, url: contact_path, method: :post, remote: true, wrapper: :horizontal_form, defaults: { input_html: { class: 'form__defaults--input' }, label_html: { class: 'form__defaults--label' } }) do |f| %>
+      <%= f.input :name %>
+      <%= invisible_captcha :last_name %>
+      <%= f.input :email, required: true, placeholder: "user@domain.com", input_html: { autocomplete: 'email' } %>
+      <%= f.input :message, as: :text, required: true, error: 'A message is required', input_html: { 'rows': 5 } %>
+      <%= f.button :submit, "Send email", class: "btn btn-primary mt-3 text-white form__defaults--btn" %>
+    <% end %>
+  </div>
+</div>

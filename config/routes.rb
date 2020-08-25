@@ -7,7 +7,8 @@ Rails.application.routes.draw do
   get 'favourites', to: 'pages#favourites'
   get 'about', to: 'pages#about'
   get 'contact-us', to: 'pages#contact'
-  get 'tc', to: 'pages#contact'
+  post 'contact', to: 'contacts#create'
+  get 'tc', to: 'pages#tc'
 
   resources :restaurants
   resources :kits do
