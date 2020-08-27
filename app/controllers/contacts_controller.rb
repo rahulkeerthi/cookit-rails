@@ -8,7 +8,7 @@ class ContactsController < ApplicationController
 
     if @contact.save
       ContactMailer.with(contact: @contact).contact_form_email.deliver
-      flash[:notice] = "Message successfully set! Thank you!"
+      flash[:notice] = "Message successfully sent! Thank you!"
       redirect_to :root
     else
       render 'pages/contact'
