@@ -14,8 +14,9 @@ require 'open-uri'
 # kit_tag.tag = tag
 # kit_tag.save!
 
-Kit.destroy_all
+KitTag.destroy_all
 RestaurantTag.destroy_all
+Kit.destroy_all
 Tag.destroy_all
 Restaurant.destroy_all
 User.destroy_all
